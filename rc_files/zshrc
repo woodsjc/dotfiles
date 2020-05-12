@@ -1,0 +1,19 @@
+export PATH=\
+/usr/local/bin:\
+/usr/bin:\
+/bin:\
+/usr/local/go/bin:\
+$HOME/.local/go/bin/scripts:\
+/usr/local/games:\
+/usr/games:
+
+export ZSH=$HOME/programs/zsh/ohmyzsh
+
+ZSH_THEME="junkfood"
+
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+alias '?'=duck
+

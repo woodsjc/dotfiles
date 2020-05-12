@@ -1,0 +1,18 @@
+#!/bin/bash
+
+cur_dir=$(pwd)
+
+ln -sf "$cur_dir/rc_files/vimrc" ~/.vimrc
+ln -sf "$cur_dir/rc_files/bashrc" ~/.bashrc
+ln -sf "$cur_dir/rc_files/zshrc" ~/.zshrc
+
+if [ ! -d "$HOME/.local/bin" ]; then
+	mkdir "$HOME/.local/bin"
+fi
+
+if [ ! -d "$HOME/.local/bin/scripts" ]; then
+	mkdir "$HOME/.local/bin/scripts"
+fi
+
+ln -sf ./scripts/duck "$HOME/.local/bin/scripts/duck"
+
