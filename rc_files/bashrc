@@ -7,9 +7,9 @@ $HOME/.local/bin/scripts:\
 /usr/local/games:\
 /usr/games
 	
-export OSH=$HOME/programs/bash/oh-my-bash
+export OSH=$HOME/programs/shell/bash/oh-my-bash
 
-OSH_THEME="dulcie"
+OSH_THEME="cooperkid"
 
 completions=(
   git
