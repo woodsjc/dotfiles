@@ -9,7 +9,7 @@ $HOME/.local/bin/scripts:\
 	
 export OSH=$HOME/programs/shell/bash/oh-my-bash
 
-OSH_THEME="cooperkid"
+OSH_THEME="garo"
 
 completions=(
   git

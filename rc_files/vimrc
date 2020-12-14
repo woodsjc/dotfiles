@@ -17,3 +17,12 @@ set hidden
 set cindent
 
 colorscheme ron
+
+try 
+	call plug#begin('~/.vim/plugged')
+	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+	call plug#end()
+catch
+	echo "vim-plug not installed"
+endtry
+
