@@ -17,3 +17,16 @@ fi
 
 ln -sf ./scripts/duck "$HOME/.local/bin/scripts/duck"
 
+#### plugins check
+nvim_dir="$HOME/.local/share/nvim/site/autoload"
+if [ ! -d "$nvim_dir" ]; then
+    mkdir -p "$nvim_dir"
+fi
+if [ ! -f "$nvim_dir/plug.vim" ]; then
+    read -r -p "Install vim-plug? [y/n] " response
+    if [[ "$response" =~ ^([yY])$ ]]; then
+        curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" \
+            -o "$nvim_dir/plug.vim"
+        nvim -es -u init.vim -i NONE -c "PlugInstall" -c "qa"
+    fi
+fi
