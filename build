@@ -5,7 +5,7 @@ cur_dir=$(pwd)
 ln -sf "$cur_dir/rc_files/vimrc" ~/.vimrc
 ln -sf "$cur_dir/rc_files/bashrc" ~/.bashrc
 ln -sf "$cur_dir/rc_files/zshrc" ~/.zshrc
-ln -sf "$cur_dir/rc_files/nvim_init.vim" ~/.config/nvim/init.vim
+mkdir -p ~/.config/nvim && ln -sf "$cur_dir/rc_files/nvim_init.vim" ~/.config/nvim/init.vim
 
 if [ ! -d "$HOME/.local/bin" ]; then
 	mkdir "$HOME/.local/bin"
@@ -17,3 +17,16 @@ fi
 
 ln -sf ./scripts/duck "$HOME/.local/bin/scripts/duck"
 
+#### plugins check
+nvim_dir="$HOME/.local/share/nvim/site/autoload"
+if [ ! -d "$nvim_dir" ]; then
+    mkdir -p "$nvim_dir"
+fi
+if [ ! -f "$nvim_dir/plug.vim" ]; then
+    read -r -p "Install vim-plug? [y/n] " response
+    if [[ "$response" =~ ^([yY])$ ]]; then
+        curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" \
+            -o "$nvim_dir/plug.vim"
+        nvim -es -u init.vim -i NONE -c "PlugInstall" -c "qa"
+    fi
+fi
