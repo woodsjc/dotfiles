@@ -3,7 +3,7 @@ filetype on
 filetype plugin on
 filetype plugin indent on
 syntax enable
-colorscheme ron
+colorscheme pablo
 
 set autowrite
 set noshowcmd
@@ -30,6 +30,8 @@ Plug 'davidhalter/jedi-vim'
 Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+"Plug 'racer-rust/vim-racer'
+Plug 'OmniSharp/omnisharp-vim'
 call plug#end()
 
 let g:go_highlight_fields = 0
@@ -47,3 +49,10 @@ let g:ycm_complete_in_strings = 1
 let g:ycm_use_ultisnips_completer = 1
 let g:ycm_add_preview_to_completeopt="popup"
 let g:ycm_autoclose_preview_window_after_completion = 1
+
+"let g:racer_cmd = "$HOME/.cargo/bin/racer"
+"let g:racer_experimental_complete = 1
+
+let g:OmniSharp_server_stdio = 1
+
+highlight Pmenu ctermbg=83

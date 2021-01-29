@@ -5,9 +5,11 @@ export PATH=\
 /usr/local/go/bin:\
 $HOME/.local/bin/scripts:\
 /usr/local/games:\
-/usr/games
+/usr/games:\
+$HOME/.cargo/bin
 	
-export OSH=$HOME/programs/shell/bash/oh-my-bash
+export OSH=$HOME/.oh-my-bash
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/library"
 
 OSH_THEME="garo"
 
@@ -30,3 +32,4 @@ source $OSH/oh-my-bash.sh
 
 alias '?'=duck
 
+source "$HOME/.cargo/env"
