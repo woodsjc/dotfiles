@@ -6,7 +6,10 @@ export PATH=\
 $HOME/.local/bin/scripts:\
 /usr/local/games:\
 /usr/games:\
-$HOME/.cargo/bin
+$HOME/.cargo/bin:\
+$HOME/.npm-global/bin:\
+$HOME/programs/go/bin:\
+$HOME/.dotnet
 	
 export OSH=$HOME/.oh-my-bash
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/library"
@@ -17,6 +20,7 @@ completions=(
   git
   composer
   ssh
+  dotnet
 )
 
 aliases=(
