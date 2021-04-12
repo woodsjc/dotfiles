@@ -1,28 +1,41 @@
 set nocompatible
-filetype on
-filetype plugin on
 filetype plugin indent on
 syntax enable
-colorscheme pablo
+
+"need with termguicolors
+set t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
+set t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
 
 set autowrite
 set cmdheight=2
+set colorcolumn=80
+set completeopt=menuone,noinsert,noselect
 set cursorline
 set expandtab
 set hidden
 set hlsearch
 set ignorecase
 set incsearch
-set noshowcmd
+set nobackup
+set noerrorbells
+"set noshowcmd
+set noshowmode
+set noswapfile
 set nolazyredraw
 set number
+set scrolloff=8
+set signcolumn=yes
 set shortmess+=c
 set showmatch
 set showmode
 set shiftwidth=4
+set t_Co=256
 set tabstop=4
+set termguicolors
 set smartcase
 set updatetime=100
+set undodir=~/.vim/undodir
+set undofile
 
 call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -67,5 +80,5 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-reference)
 
-" highlight Pmenu ctermbg=83
-:colorscheme monoacc
+"colorscheme monoacc
+colorscheme void
