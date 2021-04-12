@@ -28,13 +28,16 @@ call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'flazz/vim-colorschemes'
 Plug 'fatih/vim-go'
+Plug 'tpope/vim-dadbod'
+Plug 'puremourning/vimspector'
 call plug#end()
 
 let g:coc_global_extensions = [
     \ 'coc-clangd', 
     \ 'coc-css', 
-    \ 'coc-git', 
+    \ 'coc-db',
     \ 'coc-go',
+    \ 'coc-git', 
     \ 'coc-html',
     \ 'coc-jedi', 
     \ 'coc-json', 
@@ -44,7 +47,6 @@ let g:coc_global_extensions = [
     \ 'coc-powershell',  
     \ 'coc-rust-analyzer',  
     \ 'coc-sh', 
-    \ 'coc-sql', 
     \ 'coc-swagger', 
     \ 'coc-tabnine',
     \ 'coc-tsserver', 
@@ -52,20 +54,37 @@ let g:coc_global_extensions = [
     \ 'coc-yaml'
     \ ]
 
-let g:go_highlight_extra_types = 0
+let g:go_gopls_options = ['-remote=auto']
+let g:go_highlight_extra_types = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
+let g:go_highlight_function_parameters = 1
 let g:go_highlight_function_calls = 1
+let g:go_highlight_format_strings = 1
+let g:go_highlight_variable_declarations = 1
+let g:go_highlight_variable_assignments = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_types = 1
-
 let g:go_fmt_autosave = 1
-let g:go_auto_sameids = 1
+let g:go_auto_sameids = 0
+let g:go_auto_type_info = 1
+let g:go_code_completion_enabled = 1
 
-nmap <slient> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-reference)
+let g:delve_backend = "native"
+let g:viminspector_enable_mappings = 'HUMAN'
+
+nnoremap <Space> <Nop>
+let mapleader =" "
+
+nnoremap <slient> gd <Plug>(coc-definition)
+nnoremap <silent> gy <Plug>(coc-type-definition)
+nnoremap <silent> gi <Plug>(coc-implementation)
+nnoremap <silent> gr <Plug>(coc-reference)
+
+au FileType go nnoremap gd :GoDefinition<CR>
+au FileType go nnoremap gy :GoTypeDefinition<CR>
+au FileType go nnoremap gi :GoImplements<CR>
+au FileType go nnoremap gr :GoReferrers<CR>
 
 " highlight Pmenu ctermbg=83
 :colorscheme monoacc

@@ -5,7 +5,7 @@ cur_dir=$(pwd)
 ln -sf "$cur_dir/rc_files/vimrc" ~/.vimrc
 ln -sf "$cur_dir/rc_files/bashrc" ~/.bashrc
 ln -sf "$cur_dir/rc_files/zshrc" ~/.zshrc
-ln -sf "$cur_dir/tmux/tmux.conf" ~/.tmux.conf
+ln -sf "$cur_dir/rc_files/tmux.conf" ~/.tmux.conf
 
 mkdir -p ~/.config/nvim 
 ln -sf "$cur_dir/rc_files/nvim_init.vim" ~/.config/nvim/init.vim
