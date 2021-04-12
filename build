@@ -19,6 +19,8 @@ if [ ! -d "$HOME/.local/bin/scripts" ]; then
 	mkdir "$HOME/.local/bin/scripts"
 fi
 
+mkdir -p ~/.vim/undodir
+
 ln -sf ./scripts/duck "$HOME/.local/bin/scripts/duck"
 
 #### plugins check
