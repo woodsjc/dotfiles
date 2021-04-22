@@ -13,15 +13,17 @@ set completeopt=menuone,noinsert,noselect
 set cursorline
 set expandtab
 set hidden
-set hlsearch
+"set hlsearch
 set ignorecase
 set incsearch
 set nobackup
 set noerrorbells
+set nolazyredraw
+set nohlsearch
 "set noshowcmd
 set noshowmode
 set noswapfile
-set nolazyredraw
+set nowrap
 set number
 set scrolloff=8
 set signcolumn=yes
@@ -43,29 +45,32 @@ Plug 'flazz/vim-colorschemes'
 Plug 'fatih/vim-go'
 Plug 'tpope/vim-dadbod'
 Plug 'puremourning/vimspector'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 call plug#end()
 
 let g:coc_global_extensions = [
-    \ 'coc-clangd', 
-    \ 'coc-css', 
-    \ 'coc-db',
-    \ 'coc-go',
-    \ 'coc-git', 
-    \ 'coc-html',
-    \ 'coc-jedi', 
-    \ 'coc-json', 
-    \ 'coc-julia', 
-    \ 'coc-omnisharp',
-    \ 'coc-markdownlint', 
-    \ 'coc-powershell',  
-    \ 'coc-rust-analyzer',  
-    \ 'coc-sh', 
-    \ 'coc-swagger', 
-    \ 'coc-tabnine',
-    \ 'coc-tsserver', 
-    \ 'coc-xml', 
-    \ 'coc-yaml'
-    \ ]
+            \ 'coc-clangd', 
+            \ 'coc-css', 
+            \ 'coc-db',
+            \ 'coc-go',
+            \ 'coc-git', 
+            \ 'coc-html',
+            \ 'coc-jedi', 
+            \ 'coc-json', 
+            \ 'coc-julia', 
+            \ 'coc-omnisharp',
+            \ 'coc-markdownlint', 
+            \ 'coc-powershell',  
+            \ 'coc-rust-analyzer',  
+            \ 'coc-sh', 
+            \ 'coc-swagger', 
+            \ 'coc-tabnine',
+            \ 'coc-tsserver', 
+            \ 'coc-xml', 
+            \ 'coc-yaml'
+            \ ]
 
 let g:go_gopls_options = ['-remote=auto']
 let g:go_highlight_extra_types = 1
@@ -94,10 +99,16 @@ nnoremap <silent> gy <Plug>(coc-type-definition)
 nnoremap <silent> gi <Plug>(coc-implementation)
 nnoremap <silent> gr <Plug>(coc-reference)
 
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
 au FileType go nnoremap gd :GoDefinition<CR>
 au FileType go nnoremap gy :GoTypeDefinition<CR>
 au FileType go nnoremap gi :GoImplements<CR>
 au FileType go nnoremap gr :GoReferrers<CR>
+au FileType go nnoremap <leader>rr :GoRename<CR>
 
 "colorscheme monoacc
-colorscheme void
+colorscheme seattle
