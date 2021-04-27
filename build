@@ -36,3 +36,7 @@ if [ ! -f "$nvim_dir/plug.vim" ]; then
         nvim -es -u init.vim -i NONE -c "PlugInstall" -c "qa"
     fi
 fi
+
+mkdir -p ~/.oh-my-zsh/custom/plugins/bashmarks
+ln -sf "$cur_dir/plugins/bashmarks.plugin.sh" \
+    ~/.oh-my-zsh/custom/plugins/bashmarks/bashmarks.plugin.zsh

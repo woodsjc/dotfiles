@@ -10,7 +10,7 @@ export TERM=screen-256color
 
 ZSH_THEME="zhann"
 
-plugins=(git)
+plugins=(git bashmarks)
 
 source $ZSH/oh-my-zsh.sh
 
