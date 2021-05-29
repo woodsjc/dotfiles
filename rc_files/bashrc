@@ -4,8 +4,7 @@ export PATH=\
 /bin:\
 /usr/local/go/bin:\
 $HOME/.local/bin/scripts:\
-/usr/local/games:\
-/usr/games:\
+$HOME/.local/bin:\
 $HOME/.cargo/bin:\
 $HOME/.npm-global/bin:\
 $HOME/programs/go/bin:\
