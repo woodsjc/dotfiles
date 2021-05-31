@@ -24,3 +24,5 @@ To compile neovim from source
 * `make distclean`
 * `make`
 * `make install`
+
+### [Add language server](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md) to lsp-config

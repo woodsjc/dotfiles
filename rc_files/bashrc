@@ -36,3 +36,5 @@ source $OSH/oh-my-bash.sh
 alias '?'=duck
 
 source "$HOME/.cargo/env"
+
+alias luamake=/home/yubs/programs/github_projects/sumneko/lua-language-server/3rd/luamake/luamake

@@ -3,7 +3,7 @@ local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 local opts = { noremap=true, silent=true }
 
-local function on_attach() 
+local function on_attach()
     buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
     buf_set_keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
@@ -14,10 +14,38 @@ local function on_attach()
 
 end
 
-local servers = { "bashls", "clangd", "gopls", "pyright", "rust_analyzer", 
-    "tsserver", "yamlls" }
+local servers = { "bashls", "clangd", "gopls", "pyright", "rust_analyzer",
+    "sumneko_lua", "tsserver", "yamlls" }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup { on_attach = on_attach }
 end
 
 vim.api.nvim_command("au BufWritePost *.go lua vim.lsp.buf.formatting()")
+
+--lua specific
+local sumneko_root_path = '/home/yubs/programs/github_projects/sumneko/lua-language-server'
+local sumneko_binary = sumneko_root_path..'/bin/Linux/lua-language-server'
+
+require'lspconfig'.sumneko_lua.setup {
+    cmd = {sumneko_binary, '-E', sumneko_root_path .. "/main.lua"};
+    settings = {
+        Lua = {
+            runtime = {
+                version = 'LuaJIT',
+                path = vim.split(package.path, ';'),
+            },
+            diagnostics = {
+                globals = {'vim'},
+            },
+            workspace = {
+                library = {
+                    [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+                    [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+                }
+            },
+            telemetry = {
+                enable = false,
+            },
+        },
+    },
+}
