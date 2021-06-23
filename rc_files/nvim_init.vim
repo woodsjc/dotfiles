@@ -13,14 +13,12 @@ set completeopt=menuone,noinsert,noselect
 set cursorline
 set expandtab
 set hidden
-"set hlsearch
 set ignorecase
 set incsearch
 set nobackup
 set noerrorbells
 set nolazyredraw
 set nohlsearch
-"set noshowcmd
 set noshowmode
 set noswapfile
 set nowrap
@@ -43,8 +41,9 @@ call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'flazz/vim-colorschemes'
 Plug 'fatih/vim-go'
-Plug 'tpope/vim-dadbod'
-Plug 'puremourning/vimspector'
+"Plug 'tpope/vim-dadbod'
+"Plug 'jidn/vim-dbml'
+"Plug 'puremourning/vimspector'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -53,14 +52,12 @@ call plug#end()
 let g:coc_global_extensions = [
             \ 'coc-clangd', 
             \ 'coc-css', 
-            \ 'coc-db',
             \ 'coc-go',
             \ 'coc-git', 
             \ 'coc-html',
             \ 'coc-jedi', 
             \ 'coc-json', 
             \ 'coc-julia', 
-            \ 'coc-omnisharp',
             \ 'coc-markdownlint', 
             \ 'coc-powershell',  
             \ 'coc-rust-analyzer',  
@@ -90,6 +87,8 @@ let g:go_code_completion_enabled = 1
 
 let g:delve_backend = "native"
 let g:viminspector_enable_mappings = 'HUMAN'
+
+let g:ftplugin_sql_omni_key = '<C-P>q'
 
 nnoremap <Space> <Nop>
 let mapleader = " "
