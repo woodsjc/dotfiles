@@ -4,8 +4,7 @@ export PATH=\
 /bin:\
 /usr/local/go/bin:\
 $HOME/.local/bin/scripts:\
-/usr/local/games:\
-/usr/games:\
+$HOME/.local/bin:\
 $HOME/.cargo/bin:\
 $HOME/.npm-global/bin:\
 $HOME/programs/go/bin:\
@@ -37,3 +36,5 @@ source $OSH/oh-my-bash.sh
 alias '?'=duck
 
 source "$HOME/.cargo/env"
+
+alias luamake=/home/yubs/programs/github_projects/sumneko/lua-language-server/3rd/luamake/luamake

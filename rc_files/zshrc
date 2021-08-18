@@ -3,7 +3,9 @@ export PATH=\
 /usr/bin:\
 /bin:\
 /Users/jason/go/bin:\
-/usr/local/opt/python@3.7/bin
+/usr/local/opt/python@3.7/bin:\
+/usr/local/opt/python@3.8/bin:\
+/Applications/SnowSQL.app/Contents/MacOS
 
 export ZSH=$HOME/.oh-my-zsh
 export TERM=screen-256color
@@ -15,4 +17,5 @@ plugins=(git bashmarks)
 source $ZSH/oh-my-zsh.sh
 
 alias '?'=duck
-
+alias luamake=/Users/jason/programs/lua-language-server/3rd/luamake/luamake
+alias snowsql=/Applications/SnowSQL.app/Contents/MacOS/snowsql
