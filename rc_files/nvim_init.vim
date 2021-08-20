@@ -46,6 +46,8 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'tpope/vim-repeat'
+Plug 'pappasam/nvim-repl'
 call plug#end()
 
 colorscheme seattle
@@ -62,6 +64,10 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>bn <cmd>bn<cr>
 nnoremap <leader>bp <cmd>bp<cr>
+
+nnoremap <leader>r <cmd>ReplToggle<cr> <bar> <C-W>H <bar> <C-W>25>
+nmap <leader>w <Plug>ReplSendLine
+vmap <leader>w <Plug>ReplSendVisual
 
 au BufReadPost *.jet set syntax=html
 
