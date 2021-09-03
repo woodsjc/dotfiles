@@ -3,12 +3,14 @@ export PATH=\
 /usr/bin:\
 /bin:\
 /Users/jason/go/bin:\
+$HOME/.local/bin/scripts:\
 /usr/local/opt/python@3.7/bin:\
 /usr/local/opt/python@3.8/bin:\
 /Applications/SnowSQL.app/Contents/MacOS
 
 export ZSH=$HOME/.oh-my-zsh
 export TERM=screen-256color
+export GPG_TTY=$(tty)
 
 ZSH_THEME="zhann"
 

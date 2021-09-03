@@ -11,7 +11,6 @@ local function on_attach()
     buf_set_keymap("n", "gi", "<Cmd>lua vim.lsp.buf.implementation()<CR>", opts)
     buf_set_keymap("n", "gr", "<Cmd>lua vim.lsp.buf.references()<CR>", opts)
     buf_set_keymap("n", "<space>rr", "<Cmd>lua vim.lsp.buf.rename()<CR>", opts)
-
 end
 
 local servers = { "bashls", "clangd", "gopls", "pyright", "rust_analyzer",
@@ -21,6 +20,7 @@ for _, lsp in ipairs(servers) do
 end
 
 vim.api.nvim_command("au BufWritePost *.go lua vim.lsp.buf.formatting()")
+vim.api.nvim_command("au BufWritePost *.py :!black --fast % && flake8 %")
 
 --lua specific
 local sumneko_root_path = '/Users/jason/programs/lua-language-server'
@@ -62,17 +62,3 @@ vim.fn.sign_define('LspDiagnosticsSignError', { text = "✘", texthl = "LspDiagn
 vim.fn.sign_define('LspDiagnosticsSignWarning', { text = "", texthl = "LspDiagnosticsDefaultWarning" })
 vim.fn.sign_define('LspDiagnosticsSignInformation', { text = "", texthl = "LspDiagnosticsDefaultInformation" })
 vim.fn.sign_define('LspDiagnosticsSignHint', { text = "", texthl = "LspDiagnosticsDefaultHint" })
-
-require "lspconfig".efm.setup {
-    init_options = {documentFormatting = true},
-    filetypes = {'python'},
-    settings = {
-        rootMarkers = {'.git/'},
-        languages = {
-            python = {
-                {formatCommand = 'black -', formatStdin = true},
-                {formatCommand = 'isort --stdout --profile black -', formatStdin = true}
-            }
-        }
-    }
-}

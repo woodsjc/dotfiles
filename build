@@ -25,7 +25,8 @@ fi
 
 mkdir -p ~/.vim/undodir
 
-ln -sf ./scripts/duck "$HOME/.local/bin/scripts/duck"
+ln -sf "$cur_dir/scripts/duck" "$HOME/.local/bin/scripts/duck"
+ln -sf "$cur_dir/scripts/gpg_signed" "$HOME/.local/bin/scripts/gpg_signed"
 
 #### plugins check
 nvim_dir="$HOME/.local/share/nvim/site/autoload"

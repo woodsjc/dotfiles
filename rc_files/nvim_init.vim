@@ -62,6 +62,7 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>bd <cmd>bd<cr>
 nnoremap <leader>bn <cmd>bn<cr>
 nnoremap <leader>bp <cmd>bp<cr>
 

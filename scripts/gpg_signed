@@ -1,0 +1,3 @@
+!#/bin/zsh
+
+gpg --passphrase "$(security find-generic-password -l GPG_PASSPHRASE -w)" "$@"
