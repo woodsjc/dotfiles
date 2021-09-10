@@ -39,8 +39,11 @@ set undofile
 
 call plug#begin()
 Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/vim-vsnip'
-Plug 'hrsh7th/nvim-compe'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'L3MON4D3/LuaSnip'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/nvim-cmp'
 Plug 'flazz/vim-colorschemes'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -74,4 +77,4 @@ au BufReadPost *.jet set syntax=html
 
 :lua require('treesitter')
 :lua require('nvim-lspconfig')
-:lua require('nvim-compe')
+:lua require('nvim-cmp')
