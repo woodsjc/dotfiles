@@ -13,7 +13,7 @@ ln -sf "$cur_dir/rc_files/nvim_init.vim" ~/.config/nvim/init.vim
 mkdir -p ~/.config/nvim/lua
 ln -sf "$cur_dir/lua/nvim-lspconfig.lua" ~/.config/nvim/lua/nvim-lspconfig.lua
 ln -sf "$cur_dir/lua/treesitter.lua" ~/.config/nvim/lua/treesitter.lua
-ln -sf "$cur_dir/lua/nvim-compe.lua" ~/.config/nvim/lua/nvim-compe.lua
+ln -sf "$cur_dir/lua/nvim-cmp.lua" ~/.config/nvim/lua/nvim-cmp.lua
 
 if [ ! -d "$HOME/.local/bin" ]; then
 	mkdir "$HOME/.local/bin"

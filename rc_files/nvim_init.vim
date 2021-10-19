@@ -10,7 +10,6 @@ set autowrite
 set cmdheight=2
 set colorcolumn=80
 set completeopt=menuone,noselect
-"set completeopt=menuone,noinsert,noselect
 set cursorline
 set expandtab
 set hidden
@@ -40,8 +39,11 @@ set undofile
 
 call plug#begin()
 Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/vim-vsnip'
-Plug 'hrsh7th/nvim-compe'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'L3MON4D3/LuaSnip'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/nvim-cmp'
 Plug 'flazz/vim-colorschemes'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -60,6 +62,7 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>bd <cmd>bd<cr>
 nnoremap <leader>bn <cmd>bn<cr>
 nnoremap <leader>bp <cmd>bp<cr>
 
@@ -67,4 +70,4 @@ au BufReadPost *.jet set syntax=html
 
 :lua require('treesitter')
 :lua require('nvim-lspconfig')
-:lua require('nvim-compe')
+:lua require('nvim-cmp')
