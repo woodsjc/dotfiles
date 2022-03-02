@@ -1,9 +1,9 @@
 local nvim_lsp = require('lspconfig')
-local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 local opts = { noremap=true, silent=true }
 
-local function on_attach()
+local function on_attach(client, bufno)
+    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufno, ...) end
+    local function buf_set_option(...) vim.api.nvim_buf_set_option(bufno, ...) end
     buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
     buf_set_keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
@@ -14,8 +14,9 @@ local function on_attach()
 
 end
 
-local servers = { "bashls", "clangd", "gopls", "pyright", "rust_analyzer",
-    "sumneko_lua", "tsserver", "yamlls" }
+local servers = { "bashls", "clangd", "gopls", "pyright",
+    "sumneko_lua", "tsserver", "yamlls" , "rust_analyzer"
+}
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup { on_attach = on_attach }
 end
