@@ -1,6 +1,7 @@
 local nvim_lsp = require('lspconfig')
 local opts = { noremap=true, silent=true }
 
+
 local function on_attach(client, bufno)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufno, ...) end
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufno, ...) end
@@ -11,12 +12,10 @@ local function on_attach(client, bufno)
     buf_set_keymap("n", "gi", "<Cmd>lua vim.lsp.buf.implementation()<CR>", opts)
     buf_set_keymap("n", "gr", "<Cmd>lua vim.lsp.buf.references()<CR>", opts)
     buf_set_keymap("n", "<space>rr", "<Cmd>lua vim.lsp.buf.rename()<CR>", opts)
-
 end
 
-local servers = { "bashls", "clangd", "gopls", "pyright",
-    "sumneko_lua", "tsserver", "yamlls" , "rust_analyzer"
-}
+
+local servers = { "bashls", "clangd", "gopls", "pyright", "tsserver", "yamlls" }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup { on_attach = on_attach }
 end
@@ -28,6 +27,7 @@ local sumneko_root_path = '/home/yubs/programs/github_projects/sumneko/lua-langu
 local sumneko_binary = sumneko_root_path..'/bin/Linux/lua-language-server'
 
 require'lspconfig'.sumneko_lua.setup {
+    on_attach = on_attach,
     cmd = {sumneko_binary, '-E', sumneko_root_path .. "/main.lua"};
     settings = {
         Lua = {
@@ -49,6 +49,28 @@ require'lspconfig'.sumneko_lua.setup {
             },
         },
     },
+}
+
+--rust specific
+require'lspconfig'.rust_analyzer.setup {
+    on_attach = on_attach,
+    cmd = { "rust-analyzer" },
+    filetypes = { "rust" },
+    --root_dir = root_pattern("Cargo.toml", "rust-project.json"),
+    settings = {
+        ["rust-analyzer"] = {
+            assist = {
+                importGranularity = "module",
+                importPrefix = "by_self",
+            },
+            cargo = {
+                loadOutDirsFromCheck = true
+            },
+            procMacro = {
+                enable = true
+            },
+        }
+    }
 }
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(

@@ -17,13 +17,13 @@ opt.expandtab=true
 opt.hidden=true
 opt.ignorecase=true
 opt.incsearch=true
---opt.nobackup=true
---opt.noerrorbells=true
---opt.nohlsearch=true
---opt.noshowmode=true
---opt.noswapfile=true
---opt.nowrap=true
---opt.nolazyredraw=true
+vim.cmd([[set nobackup]])
+vim.cmd([[set noerrorbells]])
+vim.cmd([[set nohlsearch]])
+vim.cmd([[set noshowmode]])
+vim.cmd([[set noswapfile]])
+vim.cmd([[set nowrap]])
+vim.cmd([[set nolazyredraw]])
 opt.number=true
 opt.scrolloff=8
 opt.signcolumn="yes"
@@ -36,7 +36,7 @@ opt.tabstop=4
 opt.termguicolors=true
 opt.smartcase=true
 opt.updatetime=100
-opt.undodir="~/.vim/undodir"
+opt.undodir=os.getenv("HOME").."/.vim/undodir"
 opt.undofile=true
 
 local Plug = vim.fn['plug#']
@@ -75,6 +75,7 @@ vim.api.nvim_set_keymap('n', '<leader>bn', '<cmd>bn<cr>',                   {nor
 vim.api.nvim_set_keymap('n', '<leader>bp', '<cmd>bp<cr>',                   {noremap=true})
 
 vim.cmd([[au BufReadPost *.jet set syntax=html]])
+vim.cmd([[au BufEnter *.rs colorscheme deep-space]])
 
 require('treesitter')
 require('nvim-lspconfig')
