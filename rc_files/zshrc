@@ -2,8 +2,9 @@ export PATH=\
 /usr/local/bin:\
 /usr/bin:\
 /bin:\
-/Users/jason/go/bin:\
+$HOME/go/bin:\
 $HOME/.local/bin/scripts:\
+$HOME/.cargo/bin:\
 /usr/local/opt/python@3.7/bin:\
 /usr/local/opt/python@3.8/bin:\
 /Applications/SnowSQL.app/Contents/MacOS
