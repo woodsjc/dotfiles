@@ -24,7 +24,7 @@ vim.api.nvim_command("au BufWritePost *.go lua vim.lsp.buf.formatting()")
 
 --lua specific
 local sumneko_root_path = '/home/yubs/programs/github_projects/sumneko/lua-language-server'
-local sumneko_binary = sumneko_root_path..'/bin/Linux/lua-language-server'
+local sumneko_binary = sumneko_root_path..'/bin/lua-language-server'
 
 require'lspconfig'.sumneko_lua.setup {
     on_attach = on_attach,
