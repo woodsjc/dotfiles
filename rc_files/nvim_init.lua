@@ -56,6 +56,8 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
     Plug 'nvim-telescope/telescope.nvim'
     Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
 
+    Plug 'glepnir/lspsaga.nvim'
+    Plug 'rust-lang/rust.vim'
     Plug 'simrat39/rust-tools.nvim'
 vim.call('plug#end')
 
@@ -81,3 +83,4 @@ require('treesitter')
 require('nvim-lspconfig')
 require('nvim-cmp')
 require('rust-tools').setup({})
+require('lspsaga').init_lsp_saga()

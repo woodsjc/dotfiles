@@ -12,6 +12,8 @@ local function on_attach(client, bufno)
     buf_set_keymap("n", "gi", "<Cmd>lua vim.lsp.buf.implementation()<CR>", opts)
     buf_set_keymap("n", "gr", "<Cmd>lua vim.lsp.buf.references()<CR>", opts)
     buf_set_keymap("n", "<space>rr", "<Cmd>lua vim.lsp.buf.rename()<CR>", opts)
+
+    if client == 'rust_analyzer' then require'completion'.on_attach(client) end
 end
 
 
@@ -20,7 +22,8 @@ for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup { on_attach = on_attach }
 end
 
-vim.api.nvim_command("au BufWritePost *.go lua vim.lsp.buf.formatting()")
+vim.api.nvim_command("au BufWritePost *.go lua vim.lsp.buf.format(async)")
+vim.api.nvim_command("au BufWritePost *.rs lua vim.lsp.buf.format(async)")
 
 --lua specific
 local sumneko_root_path = '/home/yubs/programs/github_projects/sumneko/lua-language-server'
