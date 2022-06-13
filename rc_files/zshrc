@@ -2,10 +2,8 @@ export PATH=\
 /usr/local/bin:\
 /usr/bin:\
 /bin:\
-/usr/local/go/bin:\
-$HOME/.local/go/bin/scripts:\
-/usr/local/games:\
-/usr/games:
+$GOPATH/bin:\
+$HOME/.local/bin/scripts:
 
 export ZSH=$HOME/programs/zsh/ohmyzsh
 export GOPATH=$HOME/programs/go

@@ -36,3 +36,9 @@ cd 3rd/luamake
 cd ../..
 ./3rd/luamake/luamake rebuild
 ```
+
+#### go
+
+* [gopls](https://pkg.go.dev/golang.org/x/tools/gopls#section-readme)
+  * `go install golang.org/x/tools/gopls@latest`
+  * Check `$GOROOT` add `$GOROOT/bin` to path if missing
