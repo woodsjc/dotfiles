@@ -1,12 +1,14 @@
+export GOPATH=$HOME/programs/go
+
 export PATH=\
 /usr/local/bin:\
 /usr/bin:\
 /bin:\
 $GOPATH/bin:\
+$HOME/.cargo/bin:\
 $HOME/.local/bin/scripts:
 
 export ZSH=$HOME/programs/zsh/ohmyzsh
-export GOPATH=$HOME/programs/go
 
 ZSH_THEME="junkfood"
 
@@ -15,4 +17,5 @@ plugins=(git bashmarks)
 source $ZSH/oh-my-zsh.sh
 
 alias '?'=duck
-alias luamake=/home/yubs/programs/github_projects/sumneko/lua-language-server/3rd/luamake/luamake
+alias luamake=$HOME/programs/github_projects/sumneko/lua-language-server/3rd/luamake/luamake
+alias 'vi'=/usr/bin/nvim

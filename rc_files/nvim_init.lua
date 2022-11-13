@@ -76,7 +76,7 @@ vim.api.nvim_set_keymap('n', '<leader>bn', '<cmd>bn<cr>',                   {nor
 vim.api.nvim_set_keymap('n', '<leader>bp', '<cmd>bp<cr>',                   {noremap=true})
 
 vim.cmd([[au BufReadPost *.jet set syntax=html]])
-vim.cmd([[au BufEnter *.rs colorscheme deep-space]])
+vim.cmd([[au BufEnter *.rs colorscheme deepsea]])
 
 require('treesitter')
 require('nvim-lspconfig')

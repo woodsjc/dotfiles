@@ -23,7 +23,8 @@ for _, lsp in ipairs(servers) do
 end
 
 vim.api.nvim_command("au BufWritePost *.go lua vim.lsp.buf.format(async)")
-vim.api.nvim_command("au BufWritePost *.rs lua vim.lsp.buf.format(async)")
+vim.api.nvim_command("au BufWritePost *.rs :RustFmt")
+--vim.api.nvim_command("au BufWritePost *.rs lua vim.lsp.buf.format(async)")
 
 --lua specific
 local sumneko_root_path = '/home/yubs/programs/github_projects/sumneko/lua-language-server'
