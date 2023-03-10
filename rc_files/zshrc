@@ -9,6 +9,7 @@ $HOME/.cargo/bin:\
 $HOME/.local/bin/scripts:
 
 export ZSH=$HOME/programs/zsh/ohmyzsh
+export AMD_VULKAN_ICD=RADV
 
 ZSH_THEME="junkfood"
 

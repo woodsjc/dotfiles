@@ -58,6 +58,8 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
 
     Plug 'rust-lang/rust.vim'
     Plug 'simrat39/rust-tools.nvim'
+
+    Plug 'williamboman/mason.nvim'
 vim.call('plug#end')
 
 vim.cmd([[colorscheme seattle]])
@@ -82,3 +84,4 @@ require('treesitter')
 require('nvim-lspconfig')
 require('nvim-cmp')
 require('rust-tools').setup({})
+require('mason').setup({})

@@ -26,35 +26,6 @@ vim.api.nvim_command("au BufWritePost *.go lua vim.lsp.buf.format(async)")
 vim.api.nvim_command("au BufWritePost *.rs :RustFmt")
 --vim.api.nvim_command("au BufWritePost *.rs lua vim.lsp.buf.format(async)")
 
---lua specific
-local sumneko_root_path = '/home/yubs/programs/github_projects/sumneko/lua-language-server'
-local sumneko_binary = sumneko_root_path..'/bin/lua-language-server'
-
-require'lspconfig'.sumneko_lua.setup {
-    on_attach = on_attach,
-    cmd = {sumneko_binary, '-E', sumneko_root_path .. "/main.lua"};
-    settings = {
-        Lua = {
-            runtime = {
-                version = 'LuaJIT',
-                path = vim.split(package.path, ';'),
-            },
-            diagnostics = {
-                globals = {'vim'},
-            },
-            workspace = {
-                library = {
-                    [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-                    [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
-                }
-            },
-            telemetry = {
-                enable = false,
-            },
-        },
-    },
-}
-
 --rust specific
 require'lspconfig'.rust_analyzer.setup {
     on_attach = on_attach,
@@ -73,6 +44,7 @@ require'lspconfig'.rust_analyzer.setup {
             procMacro = {
                 enable = true
             },
+            inlayHints = { locationLinks = false },
         }
     }
 }
