@@ -7,6 +7,8 @@ require('mason-lspconfig').setup{
         "gopls",
         "lua_ls",
         "yamlls",
+        "bashls",
+        "jsonnet_ls",
     },
 }
 
