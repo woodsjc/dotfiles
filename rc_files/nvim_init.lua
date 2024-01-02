@@ -57,6 +57,7 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
     Plug 'williamboman/mason.nvim'
     Plug 'williamboman/mason-lspconfig.nvim'
     Plug 'WhoIsSethDaniel/mason-tool-installer.nvim'
+    Plug 'stevearc/conform.nvim'
 
     Plug 'catppuccin/nvim'
 vim.call('plug#end')
@@ -84,4 +85,5 @@ require('config/treesitter')
 require('config/nvim-lspconfig')
 require('config/nvim-cmp')
 require('config/mason')
+require('config/conform')
 require('rust-tools').setup({})

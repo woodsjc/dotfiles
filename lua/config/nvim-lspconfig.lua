@@ -24,7 +24,7 @@ end
 
 vim.api.nvim_command("au BufWritePost *.go lua vim.lsp.buf.format(async)")
 vim.api.nvim_command("au BufWritePost *.rs :RustFmt")
---vim.api.nvim_command("au BufWritePost *.rs lua vim.lsp.buf.format(async)")
+vim.api.nvim_command("au BufWritePost *.py lua require('conform').format()")
 
 --rust specific
 require'lspconfig'.rust_analyzer.setup {
