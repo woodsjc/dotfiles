@@ -4,11 +4,7 @@ vim.cmd([[set nocompatible]])
 vim.cmd([[filetype plugin indent on]])
 opt.syntax.enable = true
 
---need with termguicolors
---vim.cmd([[t_8f = "\\<Esc>[38:2:%lu:%lu:%lum"]])
---vim.cmd([[t_8b = "\\<Esc>[48:2:%lu:%lu:%lum"]])
-
-opt.autowrite = true
+opt.autowrite=true
 opt.cmdheight=2
 opt.colorcolumn="80"
 opt.completeopt="menuone,noselect"
@@ -31,7 +27,6 @@ opt.shortmess.c=true
 opt.showmatch=true
 opt.showmode=true
 opt.shiftwidth=4
---opt.t_Co=256
 opt.tabstop=4
 opt.termguicolors=true
 opt.smartcase=true
@@ -60,9 +55,14 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
     Plug 'simrat39/rust-tools.nvim'
 
     Plug 'williamboman/mason.nvim'
+    Plug 'williamboman/mason-lspconfig.nvim'
+    Plug 'WhoIsSethDaniel/mason-tool-installer.nvim'
+
+    Plug 'catppuccin/nvim'
 vim.call('plug#end')
 
-vim.cmd([[colorscheme seattle]])
+--vim.cmd([[colorscheme seattle]])
+vim.cmd([[colorscheme catppuccin]])
 
 vim.g.ftplugin_sql_omni_key = '<C-P>q'
 
@@ -80,8 +80,8 @@ vim.api.nvim_set_keymap('n', '<leader>bp', '<cmd>bp<cr>',                   {nor
 vim.cmd([[au BufReadPost *.jet set syntax=html]])
 vim.cmd([[au BufEnter *.rs colorscheme deepsea]])
 
-require('treesitter')
-require('nvim-lspconfig')
-require('nvim-cmp')
+require('config/treesitter')
+require('config/nvim-lspconfig')
+require('config/nvim-cmp')
+require('config/mason')
 require('rust-tools').setup({})
-require('mason').setup({})

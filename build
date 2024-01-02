@@ -1,23 +1,34 @@
-#!/bin/bash
+#!/bin/zsh
 
-cur_dir=$(pwd)
-
-ln -sf "$cur_dir/rc_files/vimrc" "$HOME/.vimrc"
-ln -sf "$cur_dir/rc_files/bashrc" "$HOME/.bashrc"
-ln -sf "$cur_dir/rc_files/zshrc" "$HOME/.zshrc"
-ln -sf "$cur_dir/rc_files/tmux.conf" "$HOME/.tmux.conf"
-
-mkdir -p "$HOME/.config/nvim"
-ln -sf "$cur_dir/rc_files/nvim_init.lua" "$HOME/.config/nvim/init.lua"
-
-mkdir -p "$HOME/.config/nvim/lua"
-ln -sf "$cur_dir/lua/nvim-lspconfig.lua" "$HOME/.config/nvim/lua/nvim-lspconfig.lua"
-ln -sf "$cur_dir/lua/treesitter.lua" "$HOME/.config/nvim/lua/treesitter.lua"
-ln -sf "$cur_dir/lua/nvim-cmp.lua" "$HOME/.config/nvim/lua/nvim-cmp.lua"
-
-mkdir -p "$HOME/.local/bin"
+mkdir -p "$HOME/.config/nvim/lua/config"
 mkdir -p "$HOME/.local/bin/scripts"
 mkdir -p "$HOME/.vim/undodir"
+
+# rc files
+pushd rc_files
+cur_dir=$(pwd)
+
+for file in *; do
+    if [[ -f $file ]] && [[ $file = *rc ]]; then
+        ln -sf "$cur_dir/$file" "$HOME/.$file"
+    fi
+done
+
+ln -sf "$cur_dir/tmux.conf" "$HOME/.tmux.conf"
+ln -sf "$cur_dir/nvim_init.lua" "$HOME/.config/nvim/init.lua"
+
+popd
+
+# lua files
+pushd lua/config
+cur_dir=$(pwd)
+for file in *; do
+    if [[ -f $file ]] && [[ $file = *.lua ]]; then
+        ln -sf "$cur_dir/$file" "$HOME/.config/nvim/lua/config/$file"
+    fi
+done
+
+popd
 
 ln -sf ./scripts/duck "$HOME/.local/bin/scripts/duck"
 
