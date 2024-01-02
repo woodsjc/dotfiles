@@ -16,7 +16,6 @@ done
 
 ln -sf "$cur_dir/tmux.conf" "$HOME/.tmux.conf"
 ln -sf "$cur_dir/nvim_init.lua" "$HOME/.config/nvim/init.lua"
-
 popd
 
 # lua files
@@ -27,7 +26,6 @@ for file in *; do
         ln -sf "$cur_dir/$file" "$HOME/.config/nvim/lua/config/$file"
     fi
 done
-
 popd
 
 ln -sf ./scripts/duck "$HOME/.local/bin/scripts/duck"
@@ -46,6 +44,7 @@ if [ ! -f "$nvim_dir/plug.vim" ]; then
 fi
 
 #bashmarks
+cur_dir=$(pwd)
 mkdir -p "$ZSH/custom/plugins/bashmarks"
 ln -sf "$cur_dir/plugins/bashmarks.plugin.sh" \
     "$ZSH/custom/plugins/bashmarks/bashmarks.plugin.zsh"
