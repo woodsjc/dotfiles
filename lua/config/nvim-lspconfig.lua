@@ -27,7 +27,7 @@ vim.api.nvim_command("au BufWritePost *.rs :RustFmt")
 vim.api.nvim_command("au BufWritePost *.py lua require('conform').format()")
 
 --rust specific
-require'lspconfig'.rust_analyzer.setup {
+require('lspconfig').rust_analyzer.setup {
     on_attach = on_attach,
     cmd = { "rust-analyzer" },
     filetypes = { "rust" },
@@ -45,6 +45,31 @@ require'lspconfig'.rust_analyzer.setup {
                 enable = true
             },
             inlayHints = { locationLinks = false },
+        }
+    }
+}
+
+require('lspconfig').lua_ls.setup {
+    on_attach = on_attach,
+    cmd = { "lua-language-server" },
+    filetypse = { "lua" },
+    settings = {
+        Lua = {
+            runtime = {
+                version = 'LuaJIT',
+            },
+            diagnostics = {
+                globals = {
+                    "vim",
+                    'require',
+                },
+            },
+            workspace = {
+                library = vim.api.nvim_get_runtime_file("", true),
+            },
+            telemetry = {
+                enable = false,
+            },
         }
     }
 }
