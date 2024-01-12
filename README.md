@@ -1,5 +1,6 @@
 # layout
 
+```
 .
 ├── build
 ├── lua
@@ -20,6 +21,7 @@
 ├── README.md
 └── scripts
     └── duck
+```
 
 ## Notes
 
