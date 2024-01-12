@@ -6,7 +6,7 @@ mkdir -p "$HOME/.vim/undodir"
 
 # rc files
 pushd rc_files
-cur_dir=$(pwd)
+cur_dir="$PWD"
 
 for file in *; do
     if [[ -f $file ]] && [[ $file = *rc ]]; then
@@ -20,7 +20,7 @@ popd
 
 # lua files
 pushd lua/config
-cur_dir=$(pwd)
+cur_dir="$PWD"
 for file in *; do
     if [[ -f $file ]] && [[ $file = *.lua ]]; then
         ln -sf "$cur_dir/$file" "$HOME/.config/nvim/lua/config/$file"
@@ -44,7 +44,7 @@ if [ ! -f "$nvim_dir/plug.vim" ]; then
 fi
 
 #bashmarks
-cur_dir=$(pwd)
+cur_dir="$PWD"
 mkdir -p "$ZSH/custom/plugins/bashmarks"
 ln -sf "$cur_dir/plugins/bashmarks.plugin.sh" \
     "$ZSH/custom/plugins/bashmarks/bashmarks.plugin.zsh"

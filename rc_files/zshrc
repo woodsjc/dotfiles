@@ -18,5 +18,4 @@ plugins=(git bashmarks)
 source $ZSH/oh-my-zsh.sh
 
 alias '?'=duck
-alias luamake=$HOME/programs/github_projects/sumneko/lua-language-server/3rd/luamake/luamake
 alias 'vi'=/usr/bin/nvim

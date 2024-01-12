@@ -1,18 +1,25 @@
-# dotfiles
+# layout
 
-Dotfiles added:
-* rc\_files
-  * .bashrc
-  * .zshrc
-  * .tmux.conf
-  * .vimrc
-  * nvim.init
-* lua
-  * nvim-compe.lua
-  * nvim-lspconfig.lua
-  * treesitter.lua
-* scripts
-  * duck
+.
+├── build
+├── lua
+│   └── config
+│       ├── conform.lua
+│       ├── mason.lua
+│       ├── nvim-cmp.lua
+│       ├── nvim-lspconfig.lua
+│       └── treesitter.lua
+├── plugins
+│   └── bashmarks.plugin.sh
+├── rc\_files
+│   ├── bashrc
+│   ├── nvim\_init.lua
+│   ├── tmux.conf
+│   ├── vimrc
+│   └── zshrc
+├── README.md
+└── scripts
+    └── duck
 
 ## Notes
 
@@ -26,16 +33,9 @@ To compile neovim from source
 * `make CMAKE_BUILD_TYPE=RelWithDebInfo`
 * `make install`
 
-### [Add language server](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md) to lsp-config
-
-#### [Updating lua lsp](https://github.com/miltonllera/neovim-lua-config)
-
-```sh
-cd 3rd/luamake
-./compile/install.sh
-cd ../..
-./3rd/luamake/luamake rebuild
-```
+### Adding LSP
+* [Add language server](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md) to lsp-config
+* [Add with mason-lspconfig](https://github.com/williamboman/mason-lspconfig)
 
 #### go
 
