@@ -60,6 +60,7 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
     Plug 'stevearc/conform.nvim'
 
     Plug 'catppuccin/nvim'
+    Plug 'Exafunction/codeium.vim'
 vim.call('plug#end')
 
 --vim.cmd([[colorscheme seattle]])

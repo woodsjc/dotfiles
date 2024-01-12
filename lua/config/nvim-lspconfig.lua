@@ -17,7 +17,7 @@ local function on_attach(client, bufno)
 end
 
 
-local servers = { "bashls", "clangd", "gopls", "pyright", "tsserver", "yamlls" }
+local servers = { "bashls", "clangd", "gopls", "pyright", "tsserver", "yamlls", "lua_ls", "jsonnet_ls" }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup { on_attach = on_attach }
 end
