@@ -1,38 +1,37 @@
 local opt = vim.opt
 
-vim.cmd([[set nocompatible]])
-vim.cmd([[filetype plugin indent on]])
+opt.compatible = false
+--vim.cmd([[filetype plugin indent on]])
 opt.syntax.enable = true
-
-opt.autowrite=true
-opt.cmdheight=2
-opt.colorcolumn="80"
-opt.completeopt="menuone,noselect"
-opt.cursorline=true
-opt.expandtab=true
-opt.hidden=true
-opt.ignorecase=true
-opt.incsearch=true
-vim.cmd([[set nobackup]])
-vim.cmd([[set noerrorbells]])
-vim.cmd([[set nohlsearch]])
-vim.cmd([[set noshowmode]])
-vim.cmd([[set noswapfile]])
-vim.cmd([[set nowrap]])
-vim.cmd([[set nolazyredraw]])
-opt.number=true
-opt.scrolloff=8
-opt.signcolumn="yes"
-opt.shortmess.c=true
-opt.showmatch=true
-opt.showmode=true
-opt.shiftwidth=4
-opt.tabstop=4
-opt.termguicolors=true
-opt.smartcase=true
-opt.updatetime=100
-opt.undodir=os.getenv("HOME").."/.vim/undodir"
-opt.undofile=true
+opt.autowrite = true
+opt.cmdheight = 2
+opt.colorcolumn = "80"
+opt.completeopt = "menuone,noselect"
+opt.cursorline = true
+opt.expandtab = true
+opt.hidden = true
+opt.ignorecase = true
+opt.incsearch = true
+opt.backup = false
+opt.errorbells = false
+opt.hlsearch = false
+opt.showmode = false
+opt.swapfile = false
+vim.wo.wrap = false
+opt.lazyredraw = false
+opt.number = true
+opt.scrolloff = 8
+opt.signcolumn = "yes"
+opt.shortmess.c = true
+opt.showmatch = true
+opt.showmode = true
+opt.shiftwidth = 4
+opt.tabstop = 4
+opt.termguicolors = true
+opt.smartcase = true
+opt.updatetime = 100
+opt.undodir = os.getenv("HOME").."/.vim/undodir"
+opt.undofile = true
 
 local Plug = vim.fn['plug#']
 vim.call('plug#begin', '~/.config/nvim/plugged')
@@ -79,7 +78,6 @@ vim.api.nvim_set_keymap('n', '<leader>bd', '<cmd>bd<cr>',                   {nor
 vim.api.nvim_set_keymap('n', '<leader>bn', '<cmd>bn<cr>',                   {noremap=true})
 vim.api.nvim_set_keymap('n', '<leader>bp', '<cmd>bp<cr>',                   {noremap=true})
 
-vim.cmd([[au BufReadPost *.jet set syntax=html]])
 vim.cmd([[au BufEnter *.rs colorscheme deepsea]])
 
 require('config/treesitter')
