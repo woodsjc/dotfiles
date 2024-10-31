@@ -63,7 +63,7 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
 vim.call('plug#end')
 
 --vim.cmd([[colorscheme seattle]])
-vim.cmd([[colorscheme catppuccin]])
+vim.cmd.colorscheme("catppuccin")
 
 vim.g.ftplugin_sql_omni_key = '<C-P>q'
 
