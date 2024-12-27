@@ -2,13 +2,16 @@ require('mason').setup()
 
 require('mason-lspconfig').setup{
     ensure_installed = {
+        "bashls",
+        "elixirls",
+        "emmet_ls",
+        "gopls",
+        "jsonnet_ls",
+        "lua_ls",
         "pyright",
         "rust_analyzer",
-        "gopls",
-        "lua_ls",
+        "tailwindcss",
         "yamlls",
-        "bashls",
-        "jsonnet_ls",
     },
     setup_handlers = {
         function(server)

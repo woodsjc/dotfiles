@@ -17,7 +17,7 @@ local function on_attach(client, bufno)
 end
 
 
-local servers = { "bashls", "clangd", "gopls", "pyright", "ts_ls", "yamlls", "lua_ls", "jsonnet_ls" }
+local servers = { "bashls", "clangd", "gopls", "pyright", "ts_ls", "yamlls", "lua_ls", "jsonnet_ls", "emmet_ls", "tailwindcss"}
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup { on_attach = on_attach }
 end
@@ -25,6 +25,7 @@ end
 vim.api.nvim_command("au BufWritePost *.go lua vim.lsp.buf.format(async)")
 vim.api.nvim_command("au BufWritePost *.rs :RustFmt")
 vim.api.nvim_command("au BufWritePost *.py lua require('conform').format()")
+vim.api.nvim_command("au BufWritePost *.{ex,exs,heex} lua vim.lsp.buf.format(async)")
 
 --rust specific
 require('lspconfig').rust_analyzer.setup {
@@ -72,6 +73,12 @@ require('lspconfig').lua_ls.setup {
             },
         }
     }
+}
+
+require('lspconfig').elixirls.setup{
+    on_attach = on_attach,
+    cmd = { "elixir-ls" },
+    filetypes = { "elixir" },
 }
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
