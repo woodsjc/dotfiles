@@ -49,9 +49,7 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
-
     Plug 'rust-lang/rust.vim'
-    Plug 'simrat39/rust-tools.nvim'
 
     Plug 'williamboman/mason.nvim'
     Plug 'williamboman/mason-lspconfig.nvim'
@@ -80,8 +78,8 @@ vim.api.nvim_set_keymap('n', '<leader>bp', '<cmd>bp<cr>',                   {nor
 vim.cmd([[au BufEnter *.rs colorscheme deepsea]])
 
 require('config/treesitter')
-require('config/nvim-lspconfig')
+--require('config/nvim-lspconfig')
 require('config/nvim-cmp')
 require('config/mason')
 require('config/conform')
-require('rust-tools').setup({})
+require('config/lsp-globals')
