@@ -49,9 +49,9 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'neovim-treesitter/treesitter-parser-registry'
-    --Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
     Plug 'rust-lang/rust.vim'
 
+    Plug 'neovim/nvim-lspconfig'
     Plug 'williamboman/mason.nvim'
     Plug 'williamboman/mason-lspconfig.nvim'
     Plug 'WhoIsSethDaniel/mason-tool-installer.nvim'
